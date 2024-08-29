@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Guess My Five-Digit Number</title>
+    <script type="text/javascript">
+        var icount = 0;
+
+        iRanNum = Math.floor(Math.random() * 9) + 1;
+        iRanNum2 = Math.floor(Math.random() * 9) + 1;
+        iRanNum3 = Math.floor(Math.random() * 9) + 1;
+        iRanNum4 = Math.floor(Math.random() * 9) + 1;
+        iRanNum5 = Math.floor(Math.random() * 9) + 1;
+        function vProcess()
+        {
+            
+
+            var strDigit1 = document.getElementById('txtDigit1').value;
+
+            var strDigit2 = document.getElementById('txtDigit2').value;
+
+            var strDigit3 = document.getElementById('txtDigit3').value;
+
+            var strDigit4 = document.getElementById('txtDigit4').value;
+
+            var strDigit5 = document.getElementById('txtDigit5').value;
+
+
+            
+
+            document.getElementById('taOut').value =
+                strGuess(iRanNum, strDigit1, '1') + '\r' +
+                strGuess(iRanNum2, strDigit2, '2') + '\r' +
+                strGuess(iRanNum3, strDigit3, '3') + '\r' +
+                strGuess(iRanNum4, strDigit4, '4') + '\r' +
+                strGuess(iRanNum5, strDigit5, '5') + '\r' +
+                'You have ' + icount + '  digits correct';
+
+
+
+
+
+        }
+
+        function strGuess(icorrect, iGuess, iDigit)
+        {
+             var strUserGuess;
+
+            if (iGuess == icorrect)
+            {
+                strUserGuess = ' Digit ' + iDigit + ' Is correct '
+                icount++
+            }
+            else 
+                strUserGuess = ' Digit ' + iDigit + ' Is Incorrect '
+
+           
+
+            return strUserGuess;
+        }
+
+        function vNew()
+        {
+            
+
+            document.getElementById('taOut').value = ('  ')
+
+            icount = 0
+        }
+
+
+    </script>
+
+</head>
+<body>
+<form id="frmDigitNumber">
+    <table style="border:2px solid red;background-color:lightgray;margin-left:auto;margin-right:auto">
+        <tr>
+            <td colspan="2" ; style="text-align:center;font-size:22pt">Guess My Five Digit Number</td>
+        </tr>
+
+        <tr>
+            <td>Digit 1</td>
+            <td><input type="text" id="txtDigit1" /></td>
+        </tr>
+
+        <tr>
+            <td>Digit 2</td>
+            <td><input type="text" id="txtDigit2" /></td>
+        </tr>
+
+        <tr>
+            <td>Digit 3</td>
+            <td><input type="text" id="txtDigit3" /></td>
+        </tr>
+
+        <tr>
+            <td>Digit 4</td>
+            <td><input type="text" id="txtDigit4" /></td>
+        </tr>
+
+        <tr>
+            <td>Digit 5</td>
+            <td><input type="text" id="txtDigit5" /></td>
+        </tr>
+
+        <tr>
+            <td colspan="2" style="text-align:center"><input type="button" id="btnClick" value="Guess" style="width:100px" onclick="vProcess()" /></td>
+
+        </tr>
+
+        <tr>
+            <td colspan="2" style="text-align:center"><textarea id="taOut" style="width:200px; height:100px"></textarea></td>
+        </tr>
+
+        <tr>
+            <td colspan="2" style="text-align:center"><input type="button" id="btnNew" value="New" onclick="vNew()" /></td>
+        </tr>
+
+
+    </table>
+
+</form>
+</body>
+</html>
